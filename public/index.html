@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
@@ -24,7 +24,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Test Chatbot</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -39,5 +39,26 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+
+    <script type='text/javascript'>
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+    
+          embeddedservice_bootstrap.init(
+            '00D0T0000008mB6',
+            'Messaging',
+            'https://fisherfundsnz--test.sandbox.my.site.com/ESWMessagingInAppandW1708039955789',
+            {
+              scrt2URL: 'https://fisherfundsnz--test.sandbox.my.salesforce-scrt.com'
+            }
+          );
+        } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err);
+        }
+      };
+    </script>
+    <script type='text/javascript' src='https://fisherfundsnz--test.sandbox.my.site.com/ESWMessagingInAppandW1708039955789/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+    
   </body>
 </html>
